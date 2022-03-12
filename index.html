@@ -87,9 +87,12 @@
         var rotateValue = circle.style.transform;
         var rotateSum; 
 
-        let projects = []
+        let projects = ['yellowduck', 'project2', 'project3','project4']
+        let activeProject = 0
+
         upBtn.onclick = function()
         {
+            activeProject = (activeProject+1)%4
             rotateSum = rotateValue + "rotate(-90deg)";
             circle.style.transform = rotateSum;
             rotateValue = rotateSum;
@@ -97,9 +100,28 @@
 
         downBtn.onclick = function()
         {
+            activeProject = (activeProject-1)%4
             rotateSum = rotateValue + "rotate(90deg)";
             circle.style.transform = rotateSum;
             rotateValue = rotateSum;
+        }
+
+        let chosenProject = projects[activeProject]
+
+        setInterval(getProject, 100);
+
+        function getProject() {
+            console.log(chosenProject)
+        }
+
+        if (getProject === 'yellowduck') {
+            document.title = "Yellowduck"
+        } else if (getProject === 'project2') {
+            document.title = "Project 2"
+        } else if (getProject === 'project3') {
+            document.title = "Project 3"
+        } else if (getProject === 'project4') {
+            document.title = "Project 4"
         }
 
     </script>
